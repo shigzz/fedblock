@@ -34,6 +34,9 @@ def deploy_contract():
     session['abi'] = CONTRACT_ABI
     session['contract_address'] = CONTRACT_ADDRESS
 
+    with open('contract.txt','w') as f:
+        f.write(CONTRACT_ADDRESS)
+
     os.chdir('flask/organization')
 
 
