@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contract Publisher</title>
+
+    <link href="{{ url_for('static', filename='css/materialize.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/home_styles.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper blue darken-3">
+        <a href="{{ url_for('homepage') }}" class="brand-logo title-style">Contract Publisher</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('display') }}">View Models</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+ <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Learning Contract</h1>
+          {% if deployed %}
+        <div class="row center">
+          <h5 class="header col s12 light">{{ address }}</h5>
+        </div>
+          {% endif %}
+        <form action="{{ url_for('homepage') }}" method="POST" class="row center">
+            <button name="action" class="waves-effect waves-light btn blue darken-3">Deploy</button>
+        </form>
+        <br><br>
+      </div>
+    </div>
+ </div>
+
+{% if deployed %}
+    <div class="col s12 m7 center">
+    <h3 class="header">Contract Account</h3>
+    <div class="card horizontal">
+        <div class="row">
+      <div class="card-image col s3">
+        <img src="{{ qrcode(address) }}">
+      </div>
+      <div class="card-stacked col s9">
+        <div class="card-content">
+          <p>The contract was deployed at</p><p>{{ address }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{ url_for('choose_account') }}">Choose Account</a>
+        </div>
+      </div>
+    </div>
+        </div>
+  </div>
+{% endif %}
+
+</body>
+</html>
