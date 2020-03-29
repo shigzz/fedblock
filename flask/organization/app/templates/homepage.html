@@ -29,7 +29,7 @@
         <h1 class="header center teal-text text-lighten-2">Learning Contract</h1>
           {% if deployed %}
         <div class="row center">
-          <h5 class="header col s12 light">{{ address }}</h5>
+          <h5 class="header col s12 light card-panel hoverable">{{ address }}</h5>
         </div>
           {% endif %}
         <form action="{{ url_for('homepage') }}" method="POST" class="row center">
@@ -43,7 +43,7 @@
 {% if deployed %}
     <div class="col s12 m7 center">
     <h3 class="header">Contract Account</h3>
-    <div class="card horizontal">
+    <div class="card horizontal card-panel hoverable">
         <div class="row">
       <div class="card-image col s3">
         <img src="{{ qrcode(address) }}">
@@ -51,6 +51,7 @@
       <div class="card-stacked col s9">
         <div class="card-content">
           <p>The contract was deployed at</p><p>{{ address }}</p>
+            <p>Scan the QR code to receive the contract address</p>
         </div>
         <div class="card-action">
           <a href="{{ url_for('choose_account') }}">Choose Account</a>
