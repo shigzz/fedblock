@@ -5,3 +5,6 @@ flask/organization/models/*
 flask/client/models/*
 build/contracts/*.json
 *__pycache__*
+contract.txt
+dump.txt
+flask/ai/accuracy.txt
