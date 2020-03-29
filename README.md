@@ -1,5 +1,5 @@
 # fedblock
-## Build Step
+## Build Steps
 - Setup `ganache-cli` and `truffle`
 - Setup `ipfs` and `redis`
 - Run setup.sh
