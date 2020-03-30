@@ -129,7 +129,7 @@ def download():
 def average():
     os.chdir('../ai')
     print(os.path.abspath(os.curdir))
-    os.system('python3 ai.py org ../organization/models/model.pkl > /dev/null')
+    os.system('python3 ai.py org ../organization/updated_models/model.pkl > /dev/null')
     os.chdir('../organization')
 
     return redirect(url_for('display'))
@@ -138,7 +138,7 @@ def average():
 @app.route('/publish', methods=['POST'])
 def publish():
     api = ipfsapi.connect('127.0.0.1', 5001)
-    res = api.add('models/model.pkl')
+    res = api.add('updated_models/model.pkl')
     ipfsHash = res['Hash']
     print(ipfsHash)
     contract = server.eth.contract(address=CONTRACT_ADDRESS,
